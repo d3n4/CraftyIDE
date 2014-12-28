@@ -1,0 +1,71 @@
+c:\users\denfer\documents\visual studio 2013\Projects\RubberGameEngine\RubberGameEngine\bin\x86\Debug\CraftyIDE.exe
+c:\users\denfer\documents\visual studio 2013\Projects\RubberGameEngine\RubberGameEngine\bin\x86\Debug\CraftyIDE.pdb
+c:\users\denfer\documents\visual studio 2013\Projects\RubberGameEngine\RubberGameEngine\bin\x86\Debug\Awesomium.Core.dll
+c:\users\denfer\documents\visual studio 2013\Projects\RubberGameEngine\RubberGameEngine\bin\x86\Debug\Awesomium.Windows.Forms.dll
+c:\users\denfer\documents\visual studio 2013\Projects\RubberGameEngine\RubberGameEngine\bin\x86\Debug\Awesomium.Core.xml
+c:\users\denfer\documents\visual studio 2013\Projects\RubberGameEngine\RubberGameEngine\bin\x86\Debug\Awesomium.Windows.Forms.xml
+c:\users\denfer\documents\visual studio 2013\Projects\RubberGameEngine\RubberGameEngine\bin\x86\Debug\awesomium.dll
+c:\users\denfer\documents\visual studio 2013\Projects\RubberGameEngine\RubberGameEngine\bin\x86\Debug\icudt.dll
+c:\users\denfer\documents\visual studio 2013\Projects\RubberGameEngine\RubberGameEngine\bin\x86\Debug\avcodec-53.dll
+c:\users\denfer\documents\visual studio 2013\Projects\RubberGameEngine\RubberGameEngine\bin\x86\Debug\avformat-53.dll
+c:\users\denfer\documents\visual studio 2013\Projects\RubberGameEngine\RubberGameEngine\bin\x86\Debug\avutil-51.dll
+c:\users\denfer\documents\visual studio 2013\Projects\RubberGameEngine\RubberGameEngine\bin\x86\Debug\libEGL.dll
+c:\users\denfer\documents\visual studio 2013\Projects\RubberGameEngine\RubberGameEngine\bin\x86\Debug\libGLESv2.dll
+c:\users\denfer\documents\visual studio 2013\Projects\RubberGameEngine\RubberGameEngine\bin\x86\Debug\awesomium_process
+c:\users\denfer\documents\visual studio 2013\Projects\RubberGameEngine\RubberGameEngine\bin\x86\Debug\inspector.pak
+c:\users\denfer\documents\visual studio 2013\Projects\RubberGameEngine\RubberGameEngine\bin\x86\Debug\xinput9_1_0.dll
+c:\users\denfer\documents\visual studio 2013\Projects\RubberGameEngine\RubberGameEngine\obj\x86\Debug\CraftyIDE.csprojResolveAssemblyReference.cache
+c:\users\denfer\documents\visual studio 2013\Projects\RubberGameEngine\RubberGameEngine\obj\x86\Debug\RubberGameEngine.TIDEForm.resources
+c:\users\denfer\documents\visual studio 2013\Projects\RubberGameEngine\RubberGameEngine\obj\x86\Debug\CraftyIDE.Properties.Resources.resources
+c:\users\denfer\documents\visual studio 2013\Projects\RubberGameEngine\RubberGameEngine\obj\x86\Debug\CraftyIDE.csproj.GenerateResource.Cache
+c:\users\denfer\documents\visual studio 2013\Projects\RubberGameEngine\RubberGameEngine\obj\x86\Debug\CraftyIDE.exe
+c:\users\denfer\documents\visual studio 2013\Projects\RubberGameEngine\RubberGameEngine\obj\x86\Debug\CraftyIDE.pdb
+C:\Users\DENFER\Documents\Visual Studio 2013\Projects\RubberGameEngine\CraftyIDE\obj\x86\Debug\CraftyIDE.exe
+C:\Users\DENFER\Documents\Visual Studio 2013\Projects\RubberGameEngine\CraftyIDE\obj\x86\Debug\CraftyIDE.pdb
+C:\Users\DENFER\Documents\Visual Studio 2013\Projects\RubberGameEngine\CraftyIDE\bin\x86\Debug\CraftyIDE.exe
+C:\Users\DENFER\Documents\Visual Studio 2013\Projects\RubberGameEngine\CraftyIDE\bin\x86\Debug\CraftyIDE.pdb
+C:\Users\DENFER\Documents\Visual Studio 2013\Projects\RubberGameEngine\CraftyIDE\bin\x86\Debug\Awesomium.Core.dll
+C:\Users\DENFER\Documents\Visual Studio 2013\Projects\RubberGameEngine\CraftyIDE\bin\x86\Debug\Awesomium.Windows.Forms.dll
+C:\Users\DENFER\Documents\Visual Studio 2013\Projects\RubberGameEngine\CraftyIDE\bin\x86\Debug\Awesomium.Core.xml
+C:\Users\DENFER\Documents\Visual Studio 2013\Projects\RubberGameEngine\CraftyIDE\bin\x86\Debug\Awesomium.Windows.Forms.xml
+C:\Users\DENFER\Documents\Visual Studio 2013\Projects\RubberGameEngine\CraftyIDE\bin\x86\Debug\awesomium.dll
+C:\Users\DENFER\Documents\Visual Studio 2013\Projects\RubberGameEngine\CraftyIDE\bin\x86\Debug\icudt.dll
+C:\Users\DENFER\Documents\Visual Studio 2013\Projects\RubberGameEngine\CraftyIDE\bin\x86\Debug\avcodec-53.dll
+C:\Users\DENFER\Documents\Visual Studio 2013\Projects\RubberGameEngine\CraftyIDE\bin\x86\Debug\avformat-53.dll
+C:\Users\DENFER\Documents\Visual Studio 2013\Projects\RubberGameEngine\CraftyIDE\bin\x86\Debug\avutil-51.dll
+C:\Users\DENFER\Documents\Visual Studio 2013\Projects\RubberGameEngine\CraftyIDE\bin\x86\Debug\libEGL.dll
+C:\Users\DENFER\Documents\Visual Studio 2013\Projects\RubberGameEngine\CraftyIDE\bin\x86\Debug\libGLESv2.dll
+C:\Users\DENFER\Documents\Visual Studio 2013\Projects\RubberGameEngine\CraftyIDE\bin\x86\Debug\awesomium_process
+C:\Users\DENFER\Documents\Visual Studio 2013\Projects\RubberGameEngine\CraftyIDE\bin\x86\Debug\inspector.pak
+C:\Users\DENFER\Documents\Visual Studio 2013\Projects\RubberGameEngine\CraftyIDE\bin\x86\Debug\xinput9_1_0.dll
+C:\Users\DENFER\Documents\Visual Studio 2013\Projects\RubberGameEngine\CraftyIDE\obj\x86\Debug\CraftyIDE.Properties.Resources.resources
+C:\Users\DENFER\Documents\Visual Studio 2013\Projects\RubberGameEngine\CraftyIDE\obj\x86\Debug\CraftyIDE.csproj.GenerateResource.Cache
+C:\Users\DENFER\Documents\Visual Studio 2013\Projects\RubberGameEngine\CraftyIDE\obj\x86\Debug\CraftyIDE.csprojResolveAssemblyReference.cache
+C:\Users\DENFER\Documents\Visual Studio 2013\Projects\RubberGameEngine\CraftyIDE\obj\x86\Debug\CraftyIDE.Core.GUI.TIDEForm.resources
+C:\Users\DENFER\Documents\Visual Studio 2013\Projects\RubberGameEngine\CraftyIDE\obj\x86\Debug\CraftyIDE.Core.GUI.TWelcomeForm.resources
+C:\Users\DENFER\Documents\Visual Studio 2013\Projects\RubberGameEngine\CraftyIDE\bin\x86\Debug\FastColoredTextBox.dll
+C:\Users\DENFER\Documents\Visual Studio 2013\Projects\RubberGameEngine\CraftyIDE\bin\x86\Debug\FastColoredTextBox.xml
+E:\Project\CraftyIDE\CraftyIDE\obj\x86\Debug\CraftyIDE.exe
+E:\Project\CraftyIDE\CraftyIDE\obj\x86\Debug\CraftyIDE.pdb
+E:\Project\CraftyIDE\CraftyIDE\obj\x86\Debug\CraftyIDE.csprojResolveAssemblyReference.cache
+E:\Project\CraftyIDE\CraftyIDE\obj\x86\Debug\CraftyIDE.Core.GUI.TIDEForm.resources
+E:\Project\CraftyIDE\CraftyIDE\obj\x86\Debug\CraftyIDE.Core.GUI.TWelcomeForm.resources
+E:\Project\CraftyIDE\CraftyIDE\obj\x86\Debug\CraftyIDE.Properties.Resources.resources
+E:\Project\CraftyIDE\CraftyIDE\obj\x86\Debug\CraftyIDE.csproj.GenerateResource.Cache
+E:\Project\CraftyIDE\CraftyIDE\bin\x86\Debug\CraftyIDE.exe
+E:\Project\CraftyIDE\CraftyIDE\bin\x86\Debug\CraftyIDE.pdb
+E:\Project\CraftyIDE\CraftyIDE\bin\x86\Debug\Awesomium.Core.dll
+E:\Project\CraftyIDE\CraftyIDE\bin\x86\Debug\Awesomium.Windows.Forms.dll
+E:\Project\CraftyIDE\CraftyIDE\bin\x86\Debug\Awesomium.Core.xml
+E:\Project\CraftyIDE\CraftyIDE\bin\x86\Debug\Awesomium.Windows.Forms.xml
+E:\Project\CraftyIDE\CraftyIDE\bin\x86\Debug\FastColoredTextBox.xml
+E:\Project\CraftyIDE\CraftyIDE\bin\x86\Debug\awesomium.dll
+E:\Project\CraftyIDE\CraftyIDE\bin\x86\Debug\icudt.dll
+E:\Project\CraftyIDE\CraftyIDE\bin\x86\Debug\avcodec-53.dll
+E:\Project\CraftyIDE\CraftyIDE\bin\x86\Debug\avformat-53.dll
+E:\Project\CraftyIDE\CraftyIDE\bin\x86\Debug\avutil-51.dll
+E:\Project\CraftyIDE\CraftyIDE\bin\x86\Debug\libEGL.dll
+E:\Project\CraftyIDE\CraftyIDE\bin\x86\Debug\libGLESv2.dll
+E:\Project\CraftyIDE\CraftyIDE\bin\x86\Debug\awesomium_process
+E:\Project\CraftyIDE\CraftyIDE\bin\x86\Debug\inspector.pak
+E:\Project\CraftyIDE\CraftyIDE\bin\x86\Debug\xinput9_1_0.dll
