@@ -1,0 +1,8 @@
+{
+	"Name": "CraftyJS Core",
+	"Hidden": true,
+	"Compile": {
+		"Debug": false,
+		"Release": true
+	}
+}

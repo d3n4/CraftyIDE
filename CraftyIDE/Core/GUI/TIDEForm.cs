@@ -1,10 +1,12 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.Drawing;
 using System.Globalization;
 using System.Linq;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
+using CraftyIDE.Core.Project;
 using FastColoredTextBoxNS;
 using RubberGameIDE;
 
@@ -26,6 +28,8 @@ namespace CraftyIDE.Core.GUI
             UpdateCodeEditor();
         }
 
+        public TProject CurrentProject;
+
         private void UpdateCodeEditor()
         {
             var buffer = TCodeEditor.Text;
@@ -33,14 +37,93 @@ namespace CraftyIDE.Core.GUI
             TCodeEditor.Text = buffer;
         }
 
-        private void splitContainer1_Panel2_Paint(object sender, PaintEventArgs e)
+        public void UpdateProjectExplorer()
         {
+            //SaveProjectTreeState();
+            TProjectExplorer.Nodes.Clear();
 
+            var projectNode = new TProjectTreeNode
+            {
+                Text = CurrentProject.Name,
+                PropObject = CurrentProject,
+                ImageIndex = 0,
+                SelectedImageIndex = 0
+            };
+            TProjectExplorer.Nodes.Add(projectNode);
+
+            var componentsNode = new TProjectTreeNode
+            {
+                Text = "Components",
+                PropObject = CurrentProject.Components,
+                ImageIndex = 1,
+                SelectedImageIndex = 1
+            };
+            projectNode.Nodes.Add(componentsNode);
+
+            foreach (var component in CurrentProject.Components)
+                componentsNode.Nodes.Add(new TProjectTreeNode
+                {
+                    Text = component.Name,
+                    PropObject = component,
+                    ImageIndex = 1,
+                    SelectedImageIndex = 1
+                });
+        }
+
+        public void Save()
+        {
+            SaveProjectTreeState();
+            CurrentProject.Save();
+        }
+
+        public void LoadProject()
+        {
+            TProperties.SelectedObject = CurrentProject;
+            UpdateProjectExplorer();
+            RestoreProjectTreeState();
+        }
+
+        private void SaveProjectTreeState()
+        {
+            if (CurrentProject.ProjectTreeState != null)
+            {
+                CurrentProject.ProjectTreeState.Clear();
+                CurrentProject.ProjectTreeState = null;
+            }
+            var nodes = AllNodes(TProjectExplorer.Nodes);
+            CurrentProject.ProjectTreeState = new Dictionary<string, bool>();
+            for (var i = 0; i < nodes.Count; i++)
+                CurrentProject.ProjectTreeState.Add(nodes[i].FullPath.Replace('\\', '_'), nodes[i].IsExpanded);
+        }
+
+        private void RestoreProjectTreeState()
+        {
+            var nodes = AllNodes(TProjectExplorer.Nodes);
+            if (CurrentProject.ProjectTreeState == null) return;
+            for (var i = 0; i < nodes.Count; i++)
+            {
+                if (!CurrentProject.ProjectTreeState.ContainsKey(nodes[i].FullPath.Replace('\\', '_'))) continue;
+                if (CurrentProject.ProjectTreeState[nodes[i].FullPath.Replace('\\', '_')])
+                    nodes[i].Expand();
+                else
+                    nodes[i].Collapse();
+            }
+        }
+
+        private List<TreeNode> AllNodes(TreeNodeCollection nodeCollection)
+        {
+            var nodes = new List<TreeNode>();
+            foreach (TreeNode node in nodeCollection)
+            {
+                nodes.Add(node);
+                if (node.Nodes.Count > 0)
+                    nodes.AddRange(AllNodes(node.Nodes));
+            }
+            return nodes;
         }
 
         private void TIDEForm_Load(object sender, EventArgs e)
         {
-            TProperties.SelectedObject = new TestObject();
             //var editor = new FastColoredTextBox();
             
             //editor.TextChanged += new System.EventHandler<SynBoxNS.TextChangedEventArgs>(editor_TextChanged);
@@ -123,31 +206,18 @@ namespace CraftyIDE.Core.GUI
 
         private void TCodeEditor_MouseMove(object sender, MouseEventArgs e)
         {
-            
-            var p = TCodeEditor.PointToPlace(e.Location);
-            TCodeEditor.Cursor = Cursors.IBeam;//TCodeEditor_IsNumber(p) ? Cursors.SizeNS : Cursors.IBeam;
-
+            TCodeEditor.Cursor = Cursors.IBeam;
             if (_valueChangePoint == Place.Empty) return;
             var range = TCodeEditor.GetRange(_valueChangePoint, _valueChangePoint);
             var numberFragment = range.GetFragment(TCodeEditor.SyntaxHighlighter.NumberStyle, false);
             var number = numberFragment.Text;
             if (number.Length <= 0) return;
-            Debug.WriteLine(number);
             string nextNumber;
             var num = float.Parse(number, CultureInfo.InvariantCulture);
             if (Math.Round((decimal)_startNum, MidpointRounding.ToEven) == 0)
                 _startNum = num;
-            //var modifier = 1;
             var modifier = (_startMouseLocation.Y - e.Location.Y);
-            /*if (modifier < 1)
-                modifier *= -1;*/
-            Debug.WriteLine("reminder:" + modifier);
-            //if (Math.Abs(num % 2) != 0f || Math.Abs(num % 2) != 1f)
-            //    modifier = 0.05f;//Math.Round((Decimal)f, 3, MidpointRounding.AwayFromZero)
-            /*if (modifier <= 0)
-                modifier = 1;*/
-            
-            if (/*_startMousePoint.Y - e.Location.Y*/ modifier > 0)
+            if (modifier > 0)
             {
                 nextNumber = (_startNum + modifier).ToString(CultureInfo.InvariantCulture);
                 TCodeEditor.Cursor = Cursors.PanNorth;
@@ -157,7 +227,6 @@ namespace CraftyIDE.Core.GUI
                 nextNumber = (_startNum + modifier).ToString(CultureInfo.InvariantCulture);
                 TCodeEditor.Cursor = Cursors.PanSouth;
             }
-
             TCodeEditor.Selection = numberFragment;
             TCodeEditor.ClearSelected();
             var insertedRange = TCodeEditor.InsertText(nextNumber, TCodeEditor.SyntaxHighlighter.NumberStyle, true);
@@ -178,5 +247,56 @@ namespace CraftyIDE.Core.GUI
         {
             _valueChangePoint = Place.Empty;
         }
+
+        private void toolStripButton3_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void SwitchProjectContainer(bool state)
+        {
+            TIDEEditorContainer.Panel2Collapsed = state;
+            TMainMenuToolboxButton.Checked = !TIDEEditorContainer.Panel2Collapsed;
+        }
+
+        private void SwitchProjectUtilsContainer(bool state)
+        {
+            TEditorContainerForm.Panel2Collapsed = state;
+            TMainMenuUtilsButton.Checked = !TEditorContainerForm.Panel2Collapsed;
+        }
+
+        private void TMainMenuUtilsButton_Click(object sender, EventArgs e)
+        {
+            SwitchProjectUtilsContainer(!TEditorContainerForm.Panel2Collapsed);
+        }
+
+        private void TMainMenuToolboxButton_Click(object sender, EventArgs e)
+        {
+            SwitchProjectContainer(!TIDEEditorContainer.Panel2Collapsed);
+        }
+
+        private void TProjectExplorer_AfterSelect(object sender, TreeViewEventArgs e)
+        {
+            TProperties.SelectedObject = (e.Node as TProjectTreeNode).PropObject;
+        }
+
+        private void TProperties_PropertyValueChanged(object s, PropertyValueChangedEventArgs e)
+        {
+            ((IUpdateable)TProperties.SelectedObject).Update();
+        }
+
+        private void TProjectExplorer_AfterCollapse(object sender, TreeViewEventArgs e)
+        {
+        }
+
+        private void TProjectExplorer_AfterExpand(object sender, TreeViewEventArgs e)
+        {
+        }
+
+        private void TProjectMainMenuSave_Click(object sender, EventArgs e)
+        {
+            Save();
+        }
+
     }
 }

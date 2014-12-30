@@ -1,0 +1,26 @@
+{
+   "$types" : {
+      "CraftyIDE.Core.Project.TProject, CraftyIDE, Version=1.0.5477.12557, Culture=neutral, PublicKeyToken=null" : "1",
+      "CraftyIDE.Core.Project.TComponent, CraftyIDE, Version=1.0.5477.12557, Culture=neutral, PublicKeyToken=null" : "2"
+   },
+   "$type" : "1",
+   "Name" : "New Project 43",
+   "Directory" : "E:\\Project\\CraftyIDE\\CraftyIDE\\bin\\x86\\Debug\\Projects\\New Project 43",
+   "Width" : 800,
+   "Height" : 6001,
+   "Modules" : [
+      
+   ],
+   "Components" : [
+      {
+         "$type" : "2",
+         "Name" : "2D",
+         "File" : "Components/2D.js"
+      }
+   ],
+   "ProjectTreeState" : {
+      "New Project 43" : true,
+      "New Project 43_Components" : true,
+      "New Project 43_Components_2D" : false
+   }
+}

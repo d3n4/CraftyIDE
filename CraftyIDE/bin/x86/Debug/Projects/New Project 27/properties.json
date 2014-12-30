@@ -1,0 +1,16 @@
+{
+   "$types" : {
+      "CraftyIDE.Core.Project.TProject, CraftyIDE, Version=1.0.5477.10791, Culture=neutral, PublicKeyToken=null" : "1"
+   },
+   "$type" : "1",
+   "Name" : "New Project 27",
+   "Directory" : "E:\\Project\\CraftyIDE\\CraftyIDE\\bin\\x86\\Debug\\Projects\\New Project 27",
+   "Width" : 800,
+   "Height" : 600,
+   "Modules" : [
+      
+   ],
+   "Components" : [
+      
+   ]
+}

@@ -32,13 +32,23 @@ namespace CraftyIDE.Core.GUI
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            Awesomium.Core.WebPreferences webPreferences1 = new Awesomium.Core.WebPreferences(true);
+            Awesomium.Core.WebPreferences webPreferences2 = new Awesomium.Core.WebPreferences(true);
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TIDEForm));
-            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Node0");
             System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Node0");
             this.TWebSession = new Awesomium.Windows.Forms.WebSessionProvider(this.components);
+            this.TProjectExplorerImageList = new System.Windows.Forms.ImageList(this.components);
             this.TAmbianceContainer = new Ambiance_ThemeContainer();
             this.TIDEEditorContainer = new System.Windows.Forms.SplitContainer();
+            this.TMenuSeparator = new Ambiance_Separator();
+            this.TMainMenu = new System.Windows.Forms.ToolStrip();
+            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
+            this.TMainMenuUtilsButton = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
+            this.TMainMenuToolboxButton = new System.Windows.Forms.ToolStripButton();
+            this.TProjectMainMenuSave = new System.Windows.Forms.ToolStripButton();
+            this.toolStripDropDownButton1 = new System.Windows.Forms.ToolStripDropDownButton();
+            this.testToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.TEditorContainerForm = new System.Windows.Forms.SplitContainer();
             this.TIDEEditorTabs = new Ambiance_TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
@@ -46,16 +56,18 @@ namespace CraftyIDE.Core.GUI
             this.TEditorWebControl = new Awesomium.Windows.Forms.WebControl(this.components);
             this.TCodeEditor = new FastColoredTextBoxNS.FastColoredTextBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.TUtilsTabs = new Ambiance_TabControl();
+            this.TUtilsConsolePage = new System.Windows.Forms.TabPage();
             this.TConsoleTree = new System.Windows.Forms.TreeView();
-            this.ambiance_Separator1 = new Ambiance_Separator();
-            this.ambiance_TrackBar1 = new Ambiance_TrackBar();
-            this.ambiance_Button_16 = new Ambiance_Button_1();
-            this.ambiance_Button_15 = new Ambiance_Button_1();
-            this.ambiance_Button_14 = new Ambiance_Button_1();
-            this.ambiance_Button_13 = new Ambiance_Button_1();
-            this.ambiance_Button_12 = new Ambiance_Button_1();
-            this.ambiance_Button_11 = new Ambiance_Button_1();
-            this.TMenuSeparator = new Ambiance_Separator();
+            this.TUtilsPlaybackPage = new System.Windows.Forms.TabPage();
+            this.TPlaybackRecordsTree = new System.Windows.Forms.TreeView();
+            this.TPlaybackSeparator = new Ambiance_Separator();
+            this.TPlaybackControlsPanel = new System.Windows.Forms.Panel();
+            this.TPlaybackControlsStrip = new System.Windows.Forms.ToolStrip();
+            this.TPlaybackPlayButton = new System.Windows.Forms.ToolStripButton();
+            this.TPlaybackStopButton = new System.Windows.Forms.ToolStripButton();
+            this.TPlaybackRecordButton = new System.Windows.Forms.ToolStripButton();
+            this.TPlaybackTrack = new Ambiance_TrackBar();
             this.TIDEProjectNPropertiesContainer = new System.Windows.Forms.SplitContainer();
             this.TProjectContainer = new System.Windows.Forms.SplitContainer();
             this.TProjectExplorer = new System.Windows.Forms.TreeView();
@@ -68,6 +80,7 @@ namespace CraftyIDE.Core.GUI
             this.TIDEEditorContainer.Panel1.SuspendLayout();
             this.TIDEEditorContainer.Panel2.SuspendLayout();
             this.TIDEEditorContainer.SuspendLayout();
+            this.TMainMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.TEditorContainerForm)).BeginInit();
             this.TEditorContainerForm.Panel1.SuspendLayout();
             this.TEditorContainerForm.Panel2.SuspendLayout();
@@ -79,6 +92,11 @@ namespace CraftyIDE.Core.GUI
             this.TEditorContainer.Panel2.SuspendLayout();
             this.TEditorContainer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.TCodeEditor)).BeginInit();
+            this.TUtilsTabs.SuspendLayout();
+            this.TUtilsConsolePage.SuspendLayout();
+            this.TUtilsPlaybackPage.SuspendLayout();
+            this.TPlaybackControlsPanel.SuspendLayout();
+            this.TPlaybackControlsStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.TIDEProjectNPropertiesContainer)).BeginInit();
             this.TIDEProjectNPropertiesContainer.Panel1.SuspendLayout();
             this.TIDEProjectNPropertiesContainer.Panel2.SuspendLayout();
@@ -92,15 +110,22 @@ namespace CraftyIDE.Core.GUI
             // 
             // TWebSession
             // 
-            webPreferences1.AppCache = false;
-            webPreferences1.CanScriptsCloseWindows = false;
-            webPreferences1.CanScriptsOpenWindows = false;
-            webPreferences1.Dart = false;
-            webPreferences1.EnableGPUAcceleration = true;
-            webPreferences1.Plugins = false;
-            webPreferences1.SmoothScrolling = true;
-            webPreferences1.WebGL = true;
-            this.TWebSession.Preferences = webPreferences1;
+            webPreferences2.AppCache = false;
+            webPreferences2.CanScriptsCloseWindows = false;
+            webPreferences2.CanScriptsOpenWindows = false;
+            webPreferences2.Dart = false;
+            webPreferences2.EnableGPUAcceleration = true;
+            webPreferences2.Plugins = false;
+            webPreferences2.SmoothScrolling = true;
+            webPreferences2.WebGL = true;
+            this.TWebSession.Preferences = webPreferences2;
+            // 
+            // TProjectExplorerImageList
+            // 
+            this.TProjectExplorerImageList.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("TProjectExplorerImageList.ImageStream")));
+            this.TProjectExplorerImageList.TransparentColor = System.Drawing.Color.Transparent;
+            this.TProjectExplorerImageList.Images.SetKeyName(0, "blue-folder-horizontal.png");
+            this.TProjectExplorerImageList.Images.SetKeyName(1, "block.png");
             // 
             // TAmbianceContainer
             // 
@@ -119,7 +144,7 @@ namespace CraftyIDE.Core.GUI
             this.TAmbianceContainer.Sizable = true;
             this.TAmbianceContainer.Size = new System.Drawing.Size(800, 600);
             this.TAmbianceContainer.SmartBounds = true;
-            this.TAmbianceContainer.StartPosition = System.Windows.Forms.FormStartPosition.WindowsDefaultLocation;
+            this.TAmbianceContainer.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.TAmbianceContainer.TabIndex = 2;
             // 
             // TIDEEditorContainer
@@ -133,11 +158,9 @@ namespace CraftyIDE.Core.GUI
             // TIDEEditorContainer.Panel1
             // 
             this.TIDEEditorContainer.Panel1.BackColor = System.Drawing.SystemColors.Control;
-            this.TIDEEditorContainer.Panel1.Controls.Add(this.TEditorContainerForm);
-            this.TIDEEditorContainer.Panel1.Controls.Add(this.ambiance_Button_13);
-            this.TIDEEditorContainer.Panel1.Controls.Add(this.ambiance_Button_12);
-            this.TIDEEditorContainer.Panel1.Controls.Add(this.ambiance_Button_11);
             this.TIDEEditorContainer.Panel1.Controls.Add(this.TMenuSeparator);
+            this.TIDEEditorContainer.Panel1.Controls.Add(this.TMainMenu);
+            this.TIDEEditorContainer.Panel1.Controls.Add(this.TEditorContainerForm);
             this.TIDEEditorContainer.Panel1MinSize = 50;
             // 
             // TIDEEditorContainer.Panel2
@@ -147,6 +170,113 @@ namespace CraftyIDE.Core.GUI
             this.TIDEEditorContainer.Size = new System.Drawing.Size(760, 528);
             this.TIDEEditorContainer.SplitterDistance = 550;
             this.TIDEEditorContainer.TabIndex = 6;
+            // 
+            // TMenuSeparator
+            // 
+            this.TMenuSeparator.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.TMenuSeparator.Location = new System.Drawing.Point(1, 21);
+            this.TMenuSeparator.Name = "TMenuSeparator";
+            this.TMenuSeparator.Size = new System.Drawing.Size(552, 14);
+            this.TMenuSeparator.TabIndex = 0;
+            this.TMenuSeparator.Text = "ambiance_Separator1";
+            // 
+            // TMainMenu
+            // 
+            this.TMainMenu.GripMargin = new System.Windows.Forms.Padding(10);
+            this.TMainMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripButton1,
+            this.toolStripButton2,
+            this.TMainMenuUtilsButton,
+            this.toolStripButton4,
+            this.TMainMenuToolboxButton,
+            this.TProjectMainMenuSave,
+            this.toolStripDropDownButton1});
+            this.TMainMenu.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.Flow;
+            this.TMainMenu.Location = new System.Drawing.Point(0, 0);
+            this.TMainMenu.Name = "TMainMenu";
+            this.TMainMenu.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
+            this.TMainMenu.Size = new System.Drawing.Size(550, 23);
+            this.TMainMenu.TabIndex = 10;
+            this.TMainMenu.Text = "toolStrip1";
+            // 
+            // toolStripButton1
+            // 
+            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton1.Image = global::CraftyIDE.Properties.Resources.folder_horizontal;
+            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton1.Name = "toolStripButton1";
+            this.toolStripButton1.Size = new System.Drawing.Size(23, 20);
+            this.toolStripButton1.Text = "toolStripButton1";
+            // 
+            // toolStripButton2
+            // 
+            this.toolStripButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton2.Image = global::CraftyIDE.Properties.Resources.compile;
+            this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton2.Name = "toolStripButton2";
+            this.toolStripButton2.Size = new System.Drawing.Size(23, 20);
+            this.toolStripButton2.Text = "toolStripButton2";
+            // 
+            // TMainMenuUtilsButton
+            // 
+            this.TMainMenuUtilsButton.Checked = true;
+            this.TMainMenuUtilsButton.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.TMainMenuUtilsButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.TMainMenuUtilsButton.Image = global::CraftyIDE.Properties.Resources.bug;
+            this.TMainMenuUtilsButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.TMainMenuUtilsButton.Name = "TMainMenuUtilsButton";
+            this.TMainMenuUtilsButton.Size = new System.Drawing.Size(23, 20);
+            this.TMainMenuUtilsButton.Text = "Console";
+            this.TMainMenuUtilsButton.Click += new System.EventHandler(this.TMainMenuUtilsButton_Click);
+            // 
+            // toolStripButton4
+            // 
+            this.toolStripButton4.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton4.Image = global::CraftyIDE.Properties.Resources.blue_folder_tree;
+            this.toolStripButton4.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton4.Name = "toolStripButton4";
+            this.toolStripButton4.Size = new System.Drawing.Size(23, 20);
+            this.toolStripButton4.Text = "toolStripButton4";
+            // 
+            // TMainMenuToolboxButton
+            // 
+            this.TMainMenuToolboxButton.Checked = true;
+            this.TMainMenuToolboxButton.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.TMainMenuToolboxButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.TMainMenuToolboxButton.Image = global::CraftyIDE.Properties.Resources.toolbox;
+            this.TMainMenuToolboxButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.TMainMenuToolboxButton.Name = "TMainMenuToolboxButton";
+            this.TMainMenuToolboxButton.Size = new System.Drawing.Size(23, 20);
+            this.TMainMenuToolboxButton.Text = "Project Toolbox";
+            this.TMainMenuToolboxButton.Click += new System.EventHandler(this.TMainMenuToolboxButton_Click);
+            // 
+            // TProjectMainMenuSave
+            // 
+            this.TProjectMainMenuSave.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.TProjectMainMenuSave.Image = global::CraftyIDE.Properties.Resources.disk;
+            this.TProjectMainMenuSave.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.TProjectMainMenuSave.Name = "TProjectMainMenuSave";
+            this.TProjectMainMenuSave.Size = new System.Drawing.Size(23, 20);
+            this.TProjectMainMenuSave.Text = "toolStripButton5";
+            this.TProjectMainMenuSave.Click += new System.EventHandler(this.TProjectMainMenuSave_Click);
+            // 
+            // toolStripDropDownButton1
+            // 
+            this.toolStripDropDownButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripDropDownButton1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.testToolStripMenuItem});
+            this.toolStripDropDownButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripDropDownButton1.Image")));
+            this.toolStripDropDownButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripDropDownButton1.Name = "toolStripDropDownButton1";
+            this.toolStripDropDownButton1.Size = new System.Drawing.Size(29, 20);
+            this.toolStripDropDownButton1.Text = "toolStripDropDownButton1";
+            // 
+            // testToolStripMenuItem
+            // 
+            this.testToolStripMenuItem.Name = "testToolStripMenuItem";
+            this.testToolStripMenuItem.Size = new System.Drawing.Size(93, 22);
+            this.testToolStripMenuItem.Text = "test";
             // 
             // TEditorContainerForm
             // 
@@ -166,12 +296,8 @@ namespace CraftyIDE.Core.GUI
             // 
             // TEditorContainerForm.Panel2
             // 
-            this.TEditorContainerForm.Panel2.Controls.Add(this.TConsoleTree);
-            this.TEditorContainerForm.Panel2.Controls.Add(this.ambiance_Separator1);
-            this.TEditorContainerForm.Panel2.Controls.Add(this.ambiance_TrackBar1);
-            this.TEditorContainerForm.Panel2.Controls.Add(this.ambiance_Button_16);
-            this.TEditorContainerForm.Panel2.Controls.Add(this.ambiance_Button_15);
-            this.TEditorContainerForm.Panel2.Controls.Add(this.ambiance_Button_14);
+            this.TEditorContainerForm.Panel2.Controls.Add(this.TUtilsTabs);
+            this.TEditorContainerForm.Panel2MinSize = 60;
             this.TEditorContainerForm.Size = new System.Drawing.Size(543, 483);
             this.TEditorContainerForm.SplitterDistance = 350;
             this.TEditorContainerForm.TabIndex = 9;
@@ -249,11 +375,9 @@ namespace CraftyIDE.Core.GUI
             this.TCodeEditor.CharHeight = 14;
             this.TCodeEditor.CharWidth = 7;
             this.TCodeEditor.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.TCodeEditor.DelayedEventsInterval = 50;
-            this.TCodeEditor.DelayedTextChangedInterval = 50;
             this.TCodeEditor.DisabledColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))));
             this.TCodeEditor.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.TCodeEditor.FoldingIndicatorColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(110)))), ((int)(((byte)(110)))));
+            this.TCodeEditor.FoldingIndicatorColor = System.Drawing.Color.FromArgb(((int)(((byte)(155)))), ((int)(((byte)(205)))), ((int)(((byte)(50)))));
             this.TCodeEditor.Font = new System.Drawing.Font("Consolas", 9F);
             this.TCodeEditor.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
             this.TCodeEditor.IndentBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
@@ -292,128 +416,141 @@ namespace CraftyIDE.Core.GUI
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Game";
             // 
+            // TUtilsTabs
+            // 
+            this.TUtilsTabs.Controls.Add(this.TUtilsConsolePage);
+            this.TUtilsTabs.Controls.Add(this.TUtilsPlaybackPage);
+            this.TUtilsTabs.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.TUtilsTabs.ItemSize = new System.Drawing.Size(80, 24);
+            this.TUtilsTabs.Location = new System.Drawing.Point(0, 0);
+            this.TUtilsTabs.Name = "TUtilsTabs";
+            this.TUtilsTabs.SelectedIndex = 0;
+            this.TUtilsTabs.Size = new System.Drawing.Size(543, 129);
+            this.TUtilsTabs.TabIndex = 0;
+            // 
+            // TUtilsConsolePage
+            // 
+            this.TUtilsConsolePage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
+            this.TUtilsConsolePage.Controls.Add(this.TConsoleTree);
+            this.TUtilsConsolePage.Location = new System.Drawing.Point(4, 28);
+            this.TUtilsConsolePage.Name = "TUtilsConsolePage";
+            this.TUtilsConsolePage.Padding = new System.Windows.Forms.Padding(3);
+            this.TUtilsConsolePage.Size = new System.Drawing.Size(535, 97);
+            this.TUtilsConsolePage.TabIndex = 0;
+            this.TUtilsConsolePage.Text = "Console";
+            // 
             // TConsoleTree
             // 
-            this.TConsoleTree.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.TConsoleTree.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.TConsoleTree.Location = new System.Drawing.Point(3, 3);
+            this.TConsoleTree.Name = "TConsoleTree";
+            this.TConsoleTree.Size = new System.Drawing.Size(529, 91);
+            this.TConsoleTree.TabIndex = 27;
+            // 
+            // TUtilsPlaybackPage
+            // 
+            this.TUtilsPlaybackPage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
+            this.TUtilsPlaybackPage.Controls.Add(this.TPlaybackRecordsTree);
+            this.TUtilsPlaybackPage.Controls.Add(this.TPlaybackSeparator);
+            this.TUtilsPlaybackPage.Controls.Add(this.TPlaybackControlsPanel);
+            this.TUtilsPlaybackPage.Location = new System.Drawing.Point(4, 28);
+            this.TUtilsPlaybackPage.Name = "TUtilsPlaybackPage";
+            this.TUtilsPlaybackPage.Padding = new System.Windows.Forms.Padding(3);
+            this.TUtilsPlaybackPage.Size = new System.Drawing.Size(535, 97);
+            this.TUtilsPlaybackPage.TabIndex = 1;
+            this.TUtilsPlaybackPage.Text = "Playback";
+            // 
+            // TPlaybackRecordsTree
+            // 
+            this.TPlaybackRecordsTree.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.TConsoleTree.Location = new System.Drawing.Point(2, 46);
-            this.TConsoleTree.Name = "TConsoleTree";
-            this.TConsoleTree.Size = new System.Drawing.Size(541, 82);
-            this.TConsoleTree.TabIndex = 14;
+            this.TPlaybackRecordsTree.Location = new System.Drawing.Point(4, 37);
+            this.TPlaybackRecordsTree.Name = "TPlaybackRecordsTree";
+            this.TPlaybackRecordsTree.Size = new System.Drawing.Size(527, 57);
+            this.TPlaybackRecordsTree.TabIndex = 5;
             // 
-            // ambiance_Separator1
+            // TPlaybackSeparator
             // 
-            this.ambiance_Separator1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.TPlaybackSeparator.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.ambiance_Separator1.Location = new System.Drawing.Point(4, 34);
-            this.ambiance_Separator1.Name = "ambiance_Separator1";
-            this.ambiance_Separator1.Size = new System.Drawing.Size(544, 14);
-            this.ambiance_Separator1.TabIndex = 15;
-            this.ambiance_Separator1.Text = "ambiance_Separator1";
+            this.TPlaybackSeparator.Location = new System.Drawing.Point(-8, 25);
+            this.TPlaybackSeparator.Name = "TPlaybackSeparator";
+            this.TPlaybackSeparator.Size = new System.Drawing.Size(552, 14);
+            this.TPlaybackSeparator.TabIndex = 4;
+            this.TPlaybackSeparator.Text = "ambiance_Separator1";
             // 
-            // ambiance_TrackBar1
+            // TPlaybackControlsPanel
             // 
-            this.ambiance_TrackBar1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.TPlaybackControlsPanel.Controls.Add(this.TPlaybackControlsStrip);
+            this.TPlaybackControlsPanel.Controls.Add(this.TPlaybackTrack);
+            this.TPlaybackControlsPanel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.TPlaybackControlsPanel.Location = new System.Drawing.Point(3, 3);
+            this.TPlaybackControlsPanel.Name = "TPlaybackControlsPanel";
+            this.TPlaybackControlsPanel.Size = new System.Drawing.Size(529, 29);
+            this.TPlaybackControlsPanel.TabIndex = 3;
+            // 
+            // TPlaybackControlsStrip
+            // 
+            this.TPlaybackControlsStrip.BackColor = System.Drawing.Color.Transparent;
+            this.TPlaybackControlsStrip.Dock = System.Windows.Forms.DockStyle.Right;
+            this.TPlaybackControlsStrip.GripMargin = new System.Windows.Forms.Padding(10);
+            this.TPlaybackControlsStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.TPlaybackPlayButton,
+            this.TPlaybackStopButton,
+            this.TPlaybackRecordButton});
+            this.TPlaybackControlsStrip.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.Flow;
+            this.TPlaybackControlsStrip.Location = new System.Drawing.Point(459, 0);
+            this.TPlaybackControlsStrip.Name = "TPlaybackControlsStrip";
+            this.TPlaybackControlsStrip.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
+            this.TPlaybackControlsStrip.Size = new System.Drawing.Size(70, 29);
+            this.TPlaybackControlsStrip.TabIndex = 33;
+            this.TPlaybackControlsStrip.Text = "toolStrip2";
+            // 
+            // TPlaybackPlayButton
+            // 
+            this.TPlaybackPlayButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.TPlaybackPlayButton.Image = global::CraftyIDE.Properties.Resources.control;
+            this.TPlaybackPlayButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.TPlaybackPlayButton.Name = "TPlaybackPlayButton";
+            this.TPlaybackPlayButton.Size = new System.Drawing.Size(23, 20);
+            this.TPlaybackPlayButton.Text = "Play";
+            // 
+            // TPlaybackStopButton
+            // 
+            this.TPlaybackStopButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.TPlaybackStopButton.Image = global::CraftyIDE.Properties.Resources.control_stop_square;
+            this.TPlaybackStopButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.TPlaybackStopButton.Name = "TPlaybackStopButton";
+            this.TPlaybackStopButton.Size = new System.Drawing.Size(23, 20);
+            this.TPlaybackStopButton.Text = "Stop";
+            // 
+            // TPlaybackRecordButton
+            // 
+            this.TPlaybackRecordButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.TPlaybackRecordButton.Image = global::CraftyIDE.Properties.Resources.control_record;
+            this.TPlaybackRecordButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.TPlaybackRecordButton.Name = "TPlaybackRecordButton";
+            this.TPlaybackRecordButton.Size = new System.Drawing.Size(23, 20);
+            this.TPlaybackRecordButton.Text = "Record";
+            // 
+            // TPlaybackTrack
+            // 
+            this.TPlaybackTrack.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.ambiance_TrackBar1.DrawValueString = false;
-            this.ambiance_TrackBar1.JumpToMouse = false;
-            this.ambiance_TrackBar1.Location = new System.Drawing.Point(7, 11);
-            this.ambiance_TrackBar1.Maximum = 10;
-            this.ambiance_TrackBar1.Minimum = 0;
-            this.ambiance_TrackBar1.MinimumSize = new System.Drawing.Size(47, 22);
-            this.ambiance_TrackBar1.Name = "ambiance_TrackBar1";
-            this.ambiance_TrackBar1.Size = new System.Drawing.Size(421, 22);
-            this.ambiance_TrackBar1.TabIndex = 12;
-            this.ambiance_TrackBar1.Text = "ambiance_TrackBar1";
-            this.ambiance_TrackBar1.Value = 0;
-            this.ambiance_TrackBar1.ValueDivison = Ambiance_TrackBar.ValueDivisor.By1;
-            this.ambiance_TrackBar1.ValueToSet = 0F;
-            // 
-            // ambiance_Button_16
-            // 
-            this.ambiance_Button_16.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.ambiance_Button_16.BackColor = System.Drawing.Color.Transparent;
-            this.ambiance_Button_16.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.ambiance_Button_16.Image = global::CraftyIDE.Properties.Resources.control_stop_square;
-            this.ambiance_Button_16.ImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.ambiance_Button_16.Location = new System.Drawing.Point(470, 8);
-            this.ambiance_Button_16.Name = "ambiance_Button_16";
-            this.ambiance_Button_16.Size = new System.Drawing.Size(30, 25);
-            this.ambiance_Button_16.TabIndex = 9;
-            this.ambiance_Button_16.TextAlignment = System.Drawing.StringAlignment.Center;
-            // 
-            // ambiance_Button_15
-            // 
-            this.ambiance_Button_15.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.ambiance_Button_15.BackColor = System.Drawing.Color.Transparent;
-            this.ambiance_Button_15.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.ambiance_Button_15.Image = global::CraftyIDE.Properties.Resources.control_record;
-            this.ambiance_Button_15.ImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.ambiance_Button_15.Location = new System.Drawing.Point(506, 8);
-            this.ambiance_Button_15.Name = "ambiance_Button_15";
-            this.ambiance_Button_15.Size = new System.Drawing.Size(30, 25);
-            this.ambiance_Button_15.TabIndex = 10;
-            this.ambiance_Button_15.TextAlignment = System.Drawing.StringAlignment.Center;
-            // 
-            // ambiance_Button_14
-            // 
-            this.ambiance_Button_14.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.ambiance_Button_14.BackColor = System.Drawing.Color.Transparent;
-            this.ambiance_Button_14.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.ambiance_Button_14.Image = global::CraftyIDE.Properties.Resources.control;
-            this.ambiance_Button_14.ImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.ambiance_Button_14.Location = new System.Drawing.Point(434, 8);
-            this.ambiance_Button_14.Name = "ambiance_Button_14";
-            this.ambiance_Button_14.Size = new System.Drawing.Size(30, 25);
-            this.ambiance_Button_14.TabIndex = 11;
-            this.ambiance_Button_14.TextAlignment = System.Drawing.StringAlignment.Center;
-            // 
-            // ambiance_Button_13
-            // 
-            this.ambiance_Button_13.BackColor = System.Drawing.Color.Transparent;
-            this.ambiance_Button_13.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.ambiance_Button_13.Image = global::CraftyIDE.Properties.Resources.compile;
-            this.ambiance_Button_13.ImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.ambiance_Button_13.Location = new System.Drawing.Point(79, 6);
-            this.ambiance_Button_13.Name = "ambiance_Button_13";
-            this.ambiance_Button_13.Size = new System.Drawing.Size(30, 25);
-            this.ambiance_Button_13.TabIndex = 8;
-            this.ambiance_Button_13.TextAlignment = System.Drawing.StringAlignment.Center;
-            // 
-            // ambiance_Button_12
-            // 
-            this.ambiance_Button_12.BackColor = System.Drawing.Color.Transparent;
-            this.ambiance_Button_12.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.ambiance_Button_12.Image = global::CraftyIDE.Properties.Resources.puzzle;
-            this.ambiance_Button_12.ImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.ambiance_Button_12.Location = new System.Drawing.Point(43, 6);
-            this.ambiance_Button_12.Name = "ambiance_Button_12";
-            this.ambiance_Button_12.Size = new System.Drawing.Size(30, 25);
-            this.ambiance_Button_12.TabIndex = 8;
-            this.ambiance_Button_12.TextAlignment = System.Drawing.StringAlignment.Center;
-            // 
-            // ambiance_Button_11
-            // 
-            this.ambiance_Button_11.BackColor = System.Drawing.Color.Transparent;
-            this.ambiance_Button_11.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.ambiance_Button_11.Image = global::CraftyIDE.Properties.Resources.folder_horizontal;
-            this.ambiance_Button_11.ImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.ambiance_Button_11.Location = new System.Drawing.Point(7, 6);
-            this.ambiance_Button_11.Name = "ambiance_Button_11";
-            this.ambiance_Button_11.Size = new System.Drawing.Size(30, 25);
-            this.ambiance_Button_11.TabIndex = 8;
-            this.ambiance_Button_11.TextAlignment = System.Drawing.StringAlignment.Center;
-            // 
-            // TMenuSeparator
-            // 
-            this.TMenuSeparator.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.TMenuSeparator.Location = new System.Drawing.Point(2, 32);
-            this.TMenuSeparator.Name = "TMenuSeparator";
-            this.TMenuSeparator.Size = new System.Drawing.Size(544, 14);
-            this.TMenuSeparator.TabIndex = 0;
-            this.TMenuSeparator.Text = "ambiance_Separator1";
+            this.TPlaybackTrack.DrawValueString = false;
+            this.TPlaybackTrack.JumpToMouse = false;
+            this.TPlaybackTrack.Location = new System.Drawing.Point(6, 0);
+            this.TPlaybackTrack.Maximum = 10;
+            this.TPlaybackTrack.Minimum = 0;
+            this.TPlaybackTrack.MinimumSize = new System.Drawing.Size(47, 22);
+            this.TPlaybackTrack.Name = "TPlaybackTrack";
+            this.TPlaybackTrack.Size = new System.Drawing.Size(451, 22);
+            this.TPlaybackTrack.TabIndex = 32;
+            this.TPlaybackTrack.Text = "ambiance_TrackBar1";
+            this.TPlaybackTrack.Value = 0;
+            this.TPlaybackTrack.ValueDivison = Ambiance_TrackBar.ValueDivisor.By1;
+            this.TPlaybackTrack.ValueToSet = 0F;
             // 
             // TIDEProjectNPropertiesContainer
             // 
@@ -450,20 +587,22 @@ namespace CraftyIDE.Core.GUI
             // 
             this.TProjectContainer.Panel2.Controls.Add(this.TProjectComponents);
             this.TProjectContainer.Size = new System.Drawing.Size(206, 278);
-            this.TProjectContainer.SplitterDistance = 150;
-            this.TProjectContainer.TabIndex = 0;
+            this.TProjectContainer.SplitterDistance = 149;
+            this.TProjectContainer.TabIndex = 3;
             // 
             // TProjectExplorer
             // 
             this.TProjectExplorer.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.TProjectExplorer.ImageIndex = 0;
+            this.TProjectExplorer.ImageList = this.TProjectExplorerImageList;
             this.TProjectExplorer.Location = new System.Drawing.Point(0, 0);
             this.TProjectExplorer.Name = "TProjectExplorer";
-            treeNode1.Name = "Node0";
-            treeNode1.Text = "Node0";
-            this.TProjectExplorer.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode1});
-            this.TProjectExplorer.Size = new System.Drawing.Size(206, 150);
-            this.TProjectExplorer.TabIndex = 1;
+            this.TProjectExplorer.SelectedImageIndex = 0;
+            this.TProjectExplorer.Size = new System.Drawing.Size(206, 149);
+            this.TProjectExplorer.TabIndex = 6;
+            this.TProjectExplorer.AfterCollapse += new System.Windows.Forms.TreeViewEventHandler(this.TProjectExplorer_AfterCollapse);
+            this.TProjectExplorer.AfterExpand += new System.Windows.Forms.TreeViewEventHandler(this.TProjectExplorer_AfterExpand);
+            this.TProjectExplorer.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.TProjectExplorer_AfterSelect);
             // 
             // TProjectComponents
             // 
@@ -474,8 +613,8 @@ namespace CraftyIDE.Core.GUI
             treeNode2.Text = "Node0";
             this.TProjectComponents.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
             treeNode2});
-            this.TProjectComponents.Size = new System.Drawing.Size(206, 124);
-            this.TProjectComponents.TabIndex = 2;
+            this.TProjectComponents.Size = new System.Drawing.Size(206, 125);
+            this.TProjectComponents.TabIndex = 5;
             // 
             // TProperties
             // 
@@ -484,6 +623,7 @@ namespace CraftyIDE.Core.GUI
             this.TProperties.Name = "TProperties";
             this.TProperties.Size = new System.Drawing.Size(206, 246);
             this.TProperties.TabIndex = 8;
+            this.TProperties.PropertyValueChanged += new System.Windows.Forms.PropertyValueChangedEventHandler(this.TProperties_PropertyValueChanged);
             // 
             // TControlBox
             // 
@@ -516,17 +656,21 @@ namespace CraftyIDE.Core.GUI
             this.ClientSize = new System.Drawing.Size(800, 600);
             this.Controls.Add(this.TAmbianceContainer);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.MinimumSize = new System.Drawing.Size(261, 65);
+            this.MinimumSize = new System.Drawing.Size(800, 600);
             this.Name = "TIDEForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.TransparencyKey = System.Drawing.Color.Fuchsia;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.TIDEForm_FormClosing);
             this.Load += new System.EventHandler(this.TIDEForm_Load);
             this.Resize += new System.EventHandler(this.TIDEForm_Resize);
             this.TAmbianceContainer.ResumeLayout(false);
             this.TIDEEditorContainer.Panel1.ResumeLayout(false);
+            this.TIDEEditorContainer.Panel1.PerformLayout();
             this.TIDEEditorContainer.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.TIDEEditorContainer)).EndInit();
             this.TIDEEditorContainer.ResumeLayout(false);
+            this.TMainMenu.ResumeLayout(false);
+            this.TMainMenu.PerformLayout();
             this.TEditorContainerForm.Panel1.ResumeLayout(false);
             this.TEditorContainerForm.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.TEditorContainerForm)).EndInit();
@@ -538,6 +682,13 @@ namespace CraftyIDE.Core.GUI
             ((System.ComponentModel.ISupportInitialize)(this.TEditorContainer)).EndInit();
             this.TEditorContainer.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.TCodeEditor)).EndInit();
+            this.TUtilsTabs.ResumeLayout(false);
+            this.TUtilsConsolePage.ResumeLayout(false);
+            this.TUtilsPlaybackPage.ResumeLayout(false);
+            this.TPlaybackControlsPanel.ResumeLayout(false);
+            this.TPlaybackControlsPanel.PerformLayout();
+            this.TPlaybackControlsStrip.ResumeLayout(false);
+            this.TPlaybackControlsStrip.PerformLayout();
             this.TIDEProjectNPropertiesContainer.Panel1.ResumeLayout(false);
             this.TIDEProjectNPropertiesContainer.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.TIDEProjectNPropertiesContainer)).EndInit();
@@ -556,30 +707,43 @@ namespace CraftyIDE.Core.GUI
         private Ambiance_ThemeContainer TAmbianceContainer;
         private Ambiance_ControlBox TControlBox;
         private System.Windows.Forms.SplitContainer TIDEEditorContainer;
-        private Ambiance_Button_1 ambiance_Button_11;
         private Ambiance_Separator TMenuSeparator;
         private System.Windows.Forms.SplitContainer TIDEProjectNPropertiesContainer;
         private System.Windows.Forms.PropertyGrid TProperties;
         private Awesomium.Windows.Forms.WebSessionProvider TWebSession;
         private System.Windows.Forms.PictureBox TCraftyLogo;
         private System.Windows.Forms.SplitContainer TEditorContainerForm;
-        private Ambiance_Button_1 ambiance_Button_12;
-        private Ambiance_Button_1 ambiance_Button_13;
-        private Ambiance_Button_1 ambiance_Button_16;
-        private Ambiance_Button_1 ambiance_Button_15;
-        private Ambiance_Button_1 ambiance_Button_14;
-        private Ambiance_TrackBar ambiance_TrackBar1;
-        private Ambiance_Separator ambiance_Separator1;
-        private System.Windows.Forms.TreeView TConsoleTree;
         private Ambiance_TabControl TIDEEditorTabs;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.SplitContainer TEditorContainer;
         private System.Windows.Forms.TabPage tabPage2;
         private FastColoredTextBoxNS.FastColoredTextBox TCodeEditor;
         private Awesomium.Windows.Forms.WebControl TEditorWebControl;
+        private ToolStrip TMainMenu;
+        private ToolStripButton toolStripButton1;
+        private ToolStripButton toolStripButton2;
+        private ToolStripButton TMainMenuUtilsButton;
         private SplitContainer TProjectContainer;
-        private TreeView TProjectExplorer;
+        private ToolStripButton toolStripButton4;
         private TreeView TProjectComponents;
+        private ToolStripButton TMainMenuToolboxButton;
+        private Ambiance_TabControl TUtilsTabs;
+        private TabPage TUtilsConsolePage;
+        private TreeView TConsoleTree;
+        private TabPage TUtilsPlaybackPage;
+        private Panel TPlaybackControlsPanel;
+        private ToolStrip TPlaybackControlsStrip;
+        private ToolStripButton TPlaybackPlayButton;
+        private ToolStripButton TPlaybackStopButton;
+        private ToolStripButton TPlaybackRecordButton;
+        private Ambiance_TrackBar TPlaybackTrack;
+        private TreeView TProjectExplorer;
+        private ToolStripButton TProjectMainMenuSave;
+        private ToolStripDropDownButton toolStripDropDownButton1;
+        private ToolStripMenuItem testToolStripMenuItem;
+        private Ambiance_Separator TPlaybackSeparator;
+        private TreeView TPlaybackRecordsTree;
+        private ImageList TProjectExplorerImageList;
     }
 }
 

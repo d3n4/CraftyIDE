@@ -18,7 +18,7 @@ namespace RubberGameEngine
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new TIDEForm());
+            Application.Run(new TWelcomeForm());
         }
     }
 }
