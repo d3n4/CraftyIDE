@@ -29,17 +29,17 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TWelcomeForm));
             System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("New Project", 0, 0);
             System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Import Project", 1, 1);
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TWelcomeForm));
             System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("MyProject", 1, 1);
+            this.TProjectImages = new System.Windows.Forms.ImageList(this.components);
             this.ambiance_ThemeContainer1 = new Ambiance_ThemeContainer();
             this.TProjectNameInput = new System.Windows.Forms.TextBox();
             this.TCreateButton = new Ambiance_Button_2();
             this.TErrorLabel = new Ambiance_HeaderLabel();
             this.ambiance_HeaderLabel2 = new Ambiance_HeaderLabel();
             this.TProjectList = new System.Windows.Forms.TreeView();
-            this.TProjectImages = new System.Windows.Forms.ImageList(this.components);
             this.TRecentProjectList = new System.Windows.Forms.TreeView();
             this.ambiance_HeaderLabel1 = new Ambiance_HeaderLabel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -47,6 +47,13 @@
             this.ambiance_ThemeContainer1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
+            // 
+            // TProjectImages
+            // 
+            this.TProjectImages.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("TProjectImages.ImageStream")));
+            this.TProjectImages.TransparentColor = System.Drawing.Color.Transparent;
+            this.TProjectImages.Images.SetKeyName(0, "blue-document.png");
+            this.TProjectImages.Images.SetKeyName(1, "blue-folder-horizontal.png");
             // 
             // ambiance_ThemeContainer1
             // 
@@ -151,13 +158,6 @@
             this.TProjectList.Size = new System.Drawing.Size(227, 218);
             this.TProjectList.TabIndex = 10;
             this.TProjectList.NodeMouseDoubleClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.TProjectList_NodeMouseDoubleClick);
-            // 
-            // TProjectImages
-            // 
-            this.TProjectImages.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("TProjectImages.ImageStream")));
-            this.TProjectImages.TransparentColor = System.Drawing.Color.Transparent;
-            this.TProjectImages.Images.SetKeyName(0, "blue-document.png");
-            this.TProjectImages.Images.SetKeyName(1, "blue-folder-horizontal.png");
             // 
             // TRecentProjectList
             // 

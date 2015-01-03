@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.Specialized;
 using System.ComponentModel;
 using System.ComponentModel.Design;
 using System.Diagnostics;
@@ -20,7 +21,7 @@ namespace CraftyIDE.Core.Project
         [Category("Project")]
         [Description("Project directory")]
         [ReadOnly(true)]
-        public string Directory { get; set; }
+        public string DirectoryPath { get; set; }
 
         [Category("Canvas")]
         [Description("Canvas width")]
@@ -30,6 +31,22 @@ namespace CraftyIDE.Core.Project
         [Description("Canvas height")]
         public int Height { get; set; }
 
+        public TModule ProjectModule;
+
+
+        public override string Identifier
+        {
+            get
+            {
+                return Name;
+            }
+            set
+            {
+                Name = value;
+            }
+        }
+
+        /*
         [Category("Project")]
         [Description("Project modules")]
         [Editor(typeof(UITypeEditor), typeof(UITypeEditor))]
@@ -39,33 +56,37 @@ namespace CraftyIDE.Core.Project
         [Description("Project components")]
         [Editor(typeof(UITypeEditor), typeof(UITypeEditor))]
         public TProjectItemList<TComponent> Components { get; set; }
+        */
+        /*[Category("Project")]
+        [Description("Project components raw list")]
+        [Editor(typeof(MultilineStringEditor), typeof(UITypeEditor))]
+        public string ComponentsList { get; set; }*/
+
 
         public Dictionary<string, bool> ProjectTreeState;
 
         public TProject()
         {
-            Modules = new TProjectItemList<TModule>();
-            Components = new TProjectItemList<TComponent>();
-            Components.Add(new TComponent("2D", "Components/2D.js"));
+            //Modules = new TProjectItemList<TModule>();
+            //Components = new TProjectItemList<TComponent>();
+            //Components.Add(new TComponent("2D", "Components/2D.js"));
         }
 
         public override void Update()
         {
-            Modules.Update();
-            Components.Update();
+            ProjectModule.Update();
         }
 
         public override void Save()
         {
-            File.WriteAllText(Directory + "/properties.json", JSON.Beautify(JSON.ToJSON(this)));
-            Modules.Save();
-            Components.Save();
+            ProjectModule.Save();
+            File.WriteAllText(DirectoryPath + "/properties.json", JSON.Beautify(JSON.ToJSON(this)));
         }
 
         public static TProject Open(string projectName)
         {
-            var projectDirectory = Environment.CurrentDirectory + "/Projects/" + projectName;
-            if (!System.IO.Directory.Exists(projectDirectory))
+            var projectDirectory = "Projects/" + projectName;
+            if (!Directory.Exists(projectDirectory))
                 return null;
 
             var propertiesFile = projectDirectory + "/properties.json";
@@ -77,8 +98,8 @@ namespace CraftyIDE.Core.Project
         public static TProjectResult Create(string projectName, string template = "Project")
         {
             projectName = projectName.Trim();
-            var projectTemplate = Environment.CurrentDirectory + "/" + template;
-            var projectDirectory = new DirectoryInfo(Environment.CurrentDirectory + "/Projects/" + projectName);
+            var projectTemplate = template;
+            var projectDirectory = new DirectoryInfo("Projects/" + projectName);
             if(projectName.Length == 0 || projectName.Contains("/") || projectName.Contains("\\") || projectName.Contains("*") || projectName.Contains("."))
                 return TProjectResult.InvalidName;
             if (projectDirectory.Exists)
@@ -87,12 +108,17 @@ namespace CraftyIDE.Core.Project
             var project = new TProject
             {
                 Name = projectDirectory.Name,
-                Directory = projectDirectory.FullName,
+                DirectoryPath = projectDirectory.FullName,
                 Width = 800,
-                Height = 600
+                Height = 600,
+                ProjectModule = new TModule(projectDirectory.Name, projectDirectory.FullName) { Included = true }
             };
 
-            File.WriteAllText(projectDirectory.FullName + "/properties.json", JSON.Beautify(JSON.ToJSON(project)));
+            project.ProjectModule.Modules.Add(TModule.LoadFrom("Library/Modules/CraftyJS"));
+            project.ProjectModule.Modules.Add(TModule.LoadFrom("Library/Modules/MySuperLib"));
+
+            project.Save();
+            //File.WriteAllText(projectDirectory.FullName + "/properties.json", JSON.Beautify(JSON.ToJSON(project)));
 
             return TProjectResult.Success;
         }

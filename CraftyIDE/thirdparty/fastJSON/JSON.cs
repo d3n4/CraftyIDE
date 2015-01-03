@@ -53,7 +53,7 @@ namespace fastJSON
         /// <summary>
         /// Enable fastJSON extensions $types, $type, $map (default = True)
         /// </summary>
-        public bool UseExtensions = true;
+        public bool UseExtensions = false;
         /// <summary>
         /// Use escaped unicode i.e. \uXXXX format for non ASCII characters (default = True)
         /// </summary>

@@ -14,18 +14,21 @@ namespace CraftyIDE.Core.GUI
 {
     public partial class TIDEForm : Form
     {
+        private TProjectElementsExplorer elementsExplorer;
+
         public TIDEForm()
         {
             InitializeComponent();
 
-            TCodeEditor.SyntaxHighlighter.AttributeStyle = new FastColoredTextBoxNS.TextStyle(new SolidBrush(Color.FromArgb(70, 225, 170)), null, FontStyle.Regular);
-            TCodeEditor.SyntaxHighlighter.ClassNameStyle = new FastColoredTextBoxNS.TextStyle(new SolidBrush(Color.FromArgb(180, 0, 0)), null, FontStyle.Regular);
-            TCodeEditor.SyntaxHighlighter.CommentStyle = new FastColoredTextBoxNS.TextStyle(new SolidBrush(Color.FromArgb(130, 140, 140)), null, FontStyle.Italic);
-            TCodeEditor.SyntaxHighlighter.CommentTagStyle = new FastColoredTextBoxNS.TextStyle(new SolidBrush(Color.FromArgb(130, 140, 140)), null, FontStyle.Italic);
-            TCodeEditor.SyntaxHighlighter.KeywordStyle = new FastColoredTextBoxNS.TextStyle(new SolidBrush(Color.FromArgb(155, 205, 50)), null, FontStyle.Regular | FontStyle.Bold);
-            TCodeEditor.SyntaxHighlighter.NumberStyle = new FastColoredTextBoxNS.TextStyle(new SolidBrush(Color.FromArgb(240, 255, 0)), null, FontStyle.Regular);
-            TCodeEditor.SyntaxHighlighter.StringStyle = new FastColoredTextBoxNS.TextStyle(new SolidBrush(Color.FromArgb(225, 130, 0)), null, FontStyle.Regular | FontStyle.Bold);
+            TCodeEditor.SyntaxHighlighter.AttributeStyle = new TextStyle(new SolidBrush(Color.FromArgb(70, 225, 170)), null, FontStyle.Regular);
+            TCodeEditor.SyntaxHighlighter.ClassNameStyle = new TextStyle(new SolidBrush(Color.FromArgb(180, 0, 0)), null, FontStyle.Regular);
+            TCodeEditor.SyntaxHighlighter.CommentStyle = new TextStyle(new SolidBrush(Color.FromArgb(130, 140, 140)), null, FontStyle.Italic);
+            TCodeEditor.SyntaxHighlighter.CommentTagStyle = new TextStyle(new SolidBrush(Color.FromArgb(130, 140, 140)), null, FontStyle.Italic);
+            TCodeEditor.SyntaxHighlighter.KeywordStyle = new TextStyle(new SolidBrush(Color.FromArgb(155, 205, 50)), null, FontStyle.Regular | FontStyle.Bold);
+            TCodeEditor.SyntaxHighlighter.NumberStyle = new TextStyle(new SolidBrush(Color.FromArgb(240, 255, 0)), null, FontStyle.Regular);
+            TCodeEditor.SyntaxHighlighter.StringStyle = new TextStyle(new SolidBrush(Color.FromArgb(225, 130, 0)), null, FontStyle.Regular | FontStyle.Bold);
             UpdateCodeEditor();
+            elementsExplorer = new TProjectElementsExplorer();
         }
 
         public TProject CurrentProject;
@@ -35,6 +38,13 @@ namespace CraftyIDE.Core.GUI
             var buffer = TCodeEditor.Text;
             TCodeEditor.Text = "";
             TCodeEditor.Text = buffer;
+        }
+
+        public void SafeUpdateProjectExplorer()
+        {
+            SaveProjectTreeState();
+            UpdateProjectExplorer();
+            RestoreProjectTreeState();
         }
 
         public void UpdateProjectExplorer()
@@ -54,19 +64,81 @@ namespace CraftyIDE.Core.GUI
             var componentsNode = new TProjectTreeNode
             {
                 Text = "Components",
-                PropObject = CurrentProject.Components,
+                PropObject = CurrentProject.ProjectModule.Components,
                 ImageIndex = 1,
-                SelectedImageIndex = 1
+                SelectedImageIndex = 1,
+                ContextMenuStrip = TComponentsContextMenu
             };
             projectNode.Nodes.Add(componentsNode);
 
-            foreach (var component in CurrentProject.Components)
+            var modulesNode = new TProjectTreeNode
+            {
+                Text = "Modules",
+                PropObject = CurrentProject.ProjectModule.Modules,
+                ImageIndex = 2,
+                SelectedImageIndex = 2,
+                ContextMenuStrip = TModulesContextMenu
+            };
+            projectNode.Nodes.Add(modulesNode);
+
+            var scriptsNode = new TProjectTreeNode
+            {
+                Text = "Scripts",
+                PropObject = CurrentProject.ProjectModule.Scripts,
+                ImageIndex = 3,
+                SelectedImageIndex = 3,
+                ContextMenuStrip = TModulesContextMenu
+            };
+            projectNode.Nodes.Add(scriptsNode);
+
+            var spritesNode = new TProjectTreeNode
+            {
+                Text = "Sprites",
+                PropObject = CurrentProject.ProjectModule.Sprites,
+                ImageIndex = 4,
+                SelectedImageIndex = 4,
+                ContextMenuStrip = TModulesContextMenu
+            };
+            projectNode.Nodes.Add(spritesNode);
+
+            foreach (var script in CurrentProject.ProjectModule.GetScripts().Where(script => script.Included && !script.Hidden))
+                scriptsNode.Nodes.Add(new TProjectTreeNode
+                {
+                    Name = script.File,
+                    Text = script.Name,
+                    PropObject = script,
+                    ImageIndex = 3,
+                    SelectedImageIndex = 3
+                });
+
+            foreach (var sprite in CurrentProject.ProjectModule.GetSprites().Where(sprite => sprite.Included && !sprite.Hidden))
+                scriptsNode.Nodes.Add(new TProjectTreeNode
+                {
+                    Name = sprite.File,
+                    Text = sprite.Name,
+                    PropObject = sprite,
+                    ImageIndex = 4,
+                    SelectedImageIndex = 4
+                });
+
+            foreach (var component in CurrentProject.ProjectModule.GetComponents().Where(component => component.Included))
                 componentsNode.Nodes.Add(new TProjectTreeNode
                 {
+                    Name = component.File,
                     Text = component.Name,
                     PropObject = component,
                     ImageIndex = 1,
                     SelectedImageIndex = 1
+                });
+
+            foreach (var module in CurrentProject.ProjectModule.GetModules().Where(module => module.Included && !module.Hidden))
+                modulesNode.Nodes.Add(new TProjectTreeNode
+                {
+                    Name = module.DirectoryPath,
+                    Text = module.Name,
+                    PropObject = module,
+                    ImageIndex = 2,
+                    SelectedImageIndex = 2
                 });
         }
 
@@ -137,10 +209,10 @@ namespace CraftyIDE.Core.GUI
 
         }
 
-        private readonly FastColoredTextBoxNS.TextStyle _attributeStyle = new FastColoredTextBoxNS.TextStyle(new SolidBrush(Color.FromArgb(98, 214, 217)), null, FontStyle.Regular);
-        private readonly FastColoredTextBoxNS.TextStyle _functionStyle = new FastColoredTextBoxNS.TextStyle(new SolidBrush(Color.FromArgb(92, 148, 180)), null, FontStyle.Regular | FontStyle.Bold);
-        private readonly FastColoredTextBoxNS.TextStyle _objectStyle = new FastColoredTextBoxNS.TextStyle(new SolidBrush(Color.FromArgb(51, 190, 120)), null, FontStyle.Regular | FontStyle.Bold);
-        private void TCodeEditor_TextChanged(object sender, FastColoredTextBoxNS.TextChangedEventArgs e)
+        private readonly TextStyle _attributeStyle = new TextStyle(new SolidBrush(Color.FromArgb(98, 214, 217)), null, FontStyle.Regular);
+        private readonly TextStyle _functionStyle = new TextStyle(new SolidBrush(Color.FromArgb(92, 148, 180)), null, FontStyle.Regular | FontStyle.Bold);
+        private readonly TextStyle _objectStyle = new TextStyle(new SolidBrush(Color.FromArgb(51, 190, 120)), null, FontStyle.Regular | FontStyle.Bold);
+        private void TCodeEditor_TextChanged(object sender, TextChangedEventArgs e)
         {
             e.ChangedRange.ClearStyle(TCodeEditor.SyntaxHighlighter.NumberStyle);
             e.ChangedRange.ClearStyle(_attributeStyle);
@@ -213,6 +285,7 @@ namespace CraftyIDE.Core.GUI
             var number = numberFragment.Text;
             if (number.Length <= 0) return;
             string nextNumber;
+            
             var num = float.Parse(number, CultureInfo.InvariantCulture);
             if (Math.Round((decimal)_startNum, MidpointRounding.ToEven) == 0)
                 _startNum = num;
@@ -246,11 +319,6 @@ namespace CraftyIDE.Core.GUI
         private void TCodeEditor_MouseUp(object sender, MouseEventArgs e)
         {
             _valueChangePoint = Place.Empty;
-        }
-
-        private void toolStripButton3_Click(object sender, EventArgs e)
-        {
-            
         }
 
         private void SwitchProjectContainer(bool state)
@@ -296,6 +364,32 @@ namespace CraftyIDE.Core.GUI
         private void TProjectMainMenuSave_Click(object sender, EventArgs e)
         {
             Save();
+        }
+
+        private void TProjectExplorer_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right)
+            {
+                
+            }
+        }
+
+        private void addComponentToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var elements = elementsExplorer.ShowDialog("Components", CurrentProject.ProjectModule.GetComponents());
+            if (elements != null)
+            {
+                SafeUpdateProjectExplorer();
+            }
+        }
+
+        private void addModuleToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var elements = elementsExplorer.ShowDialog("Modules", CurrentProject.ProjectModule.GetModules());
+            if (elements != null)
+            {
+                SafeUpdateProjectExplorer();
+            }
         }
 
     }

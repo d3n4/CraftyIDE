@@ -5,7 +5,7 @@ using System.Text;
 
 namespace CraftyIDE.Core.Project
 {
-    interface ISaveable
+    public interface ISaveable
     {
         void Save();
     }

@@ -32,9 +32,9 @@ namespace CraftyIDE.Core.GUI
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            Awesomium.Core.WebPreferences webPreferences2 = new Awesomium.Core.WebPreferences(true);
+            Awesomium.Core.WebPreferences webPreferences1 = new Awesomium.Core.WebPreferences(true);
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TIDEForm));
-            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Node0");
+            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Node0");
             this.TWebSession = new Awesomium.Windows.Forms.WebSessionProvider(this.components);
             this.TProjectExplorerImageList = new System.Windows.Forms.ImageList(this.components);
             this.TAmbianceContainer = new Ambiance_ThemeContainer();
@@ -75,6 +75,10 @@ namespace CraftyIDE.Core.GUI
             this.TProperties = new System.Windows.Forms.PropertyGrid();
             this.TControlBox = new Ambiance_ControlBox();
             this.TCraftyLogo = new System.Windows.Forms.PictureBox();
+            this.TComponentsContextMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.addComponentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.TModulesContextMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.addModuleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.TAmbianceContainer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.TIDEEditorContainer)).BeginInit();
             this.TIDEEditorContainer.Panel1.SuspendLayout();
@@ -106,19 +110,21 @@ namespace CraftyIDE.Core.GUI
             this.TProjectContainer.Panel2.SuspendLayout();
             this.TProjectContainer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.TCraftyLogo)).BeginInit();
+            this.TComponentsContextMenu.SuspendLayout();
+            this.TModulesContextMenu.SuspendLayout();
             this.SuspendLayout();
             // 
             // TWebSession
             // 
-            webPreferences2.AppCache = false;
-            webPreferences2.CanScriptsCloseWindows = false;
-            webPreferences2.CanScriptsOpenWindows = false;
-            webPreferences2.Dart = false;
-            webPreferences2.EnableGPUAcceleration = true;
-            webPreferences2.Plugins = false;
-            webPreferences2.SmoothScrolling = true;
-            webPreferences2.WebGL = true;
-            this.TWebSession.Preferences = webPreferences2;
+            webPreferences1.AppCache = false;
+            webPreferences1.CanScriptsCloseWindows = false;
+            webPreferences1.CanScriptsOpenWindows = false;
+            webPreferences1.Dart = false;
+            webPreferences1.EnableGPUAcceleration = true;
+            webPreferences1.Plugins = false;
+            webPreferences1.SmoothScrolling = true;
+            webPreferences1.WebGL = true;
+            this.TWebSession.Preferences = webPreferences1;
             // 
             // TProjectExplorerImageList
             // 
@@ -126,6 +132,9 @@ namespace CraftyIDE.Core.GUI
             this.TProjectExplorerImageList.TransparentColor = System.Drawing.Color.Transparent;
             this.TProjectExplorerImageList.Images.SetKeyName(0, "blue-folder-horizontal.png");
             this.TProjectExplorerImageList.Images.SetKeyName(1, "block.png");
+            this.TProjectExplorerImageList.Images.SetKeyName(2, "box.png");
+            this.TProjectExplorerImageList.Images.SetKeyName(3, "script.png");
+            this.TProjectExplorerImageList.Images.SetKeyName(4, "sport-soccer.png");
             // 
             // TAmbianceContainer
             // 
@@ -603,16 +612,17 @@ namespace CraftyIDE.Core.GUI
             this.TProjectExplorer.AfterCollapse += new System.Windows.Forms.TreeViewEventHandler(this.TProjectExplorer_AfterCollapse);
             this.TProjectExplorer.AfterExpand += new System.Windows.Forms.TreeViewEventHandler(this.TProjectExplorer_AfterExpand);
             this.TProjectExplorer.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.TProjectExplorer_AfterSelect);
+            this.TProjectExplorer.MouseClick += new System.Windows.Forms.MouseEventHandler(this.TProjectExplorer_MouseClick);
             // 
             // TProjectComponents
             // 
             this.TProjectComponents.Dock = System.Windows.Forms.DockStyle.Fill;
             this.TProjectComponents.Location = new System.Drawing.Point(0, 0);
             this.TProjectComponents.Name = "TProjectComponents";
-            treeNode2.Name = "Node0";
-            treeNode2.Text = "Node0";
+            treeNode1.Name = "Node0";
+            treeNode1.Text = "Node0";
             this.TProjectComponents.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode2});
+            treeNode1});
             this.TProjectComponents.Size = new System.Drawing.Size(206, 125);
             this.TProjectComponents.TabIndex = 5;
             // 
@@ -648,6 +658,34 @@ namespace CraftyIDE.Core.GUI
             this.TCraftyLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.TCraftyLogo.TabIndex = 7;
             this.TCraftyLogo.TabStop = false;
+            // 
+            // TComponentsContextMenu
+            // 
+            this.TComponentsContextMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.addComponentToolStripMenuItem});
+            this.TComponentsContextMenu.Name = "TComponentsContextMenu";
+            this.TComponentsContextMenu.Size = new System.Drawing.Size(162, 26);
+            // 
+            // addComponentToolStripMenuItem
+            // 
+            this.addComponentToolStripMenuItem.Name = "addComponentToolStripMenuItem";
+            this.addComponentToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
+            this.addComponentToolStripMenuItem.Text = "Add component";
+            this.addComponentToolStripMenuItem.Click += new System.EventHandler(this.addComponentToolStripMenuItem_Click);
+            // 
+            // TModulesContextMenu
+            // 
+            this.TModulesContextMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.addModuleToolStripMenuItem});
+            this.TModulesContextMenu.Name = "TModulesContextMenu";
+            this.TModulesContextMenu.Size = new System.Drawing.Size(141, 26);
+            // 
+            // addModuleToolStripMenuItem
+            // 
+            this.addModuleToolStripMenuItem.Name = "addModuleToolStripMenuItem";
+            this.addModuleToolStripMenuItem.Size = new System.Drawing.Size(140, 22);
+            this.addModuleToolStripMenuItem.Text = "Add module";
+            this.addModuleToolStripMenuItem.Click += new System.EventHandler(this.addModuleToolStripMenuItem_Click);
             // 
             // TIDEForm
             // 
@@ -698,6 +736,8 @@ namespace CraftyIDE.Core.GUI
             ((System.ComponentModel.ISupportInitialize)(this.TProjectContainer)).EndInit();
             this.TProjectContainer.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.TCraftyLogo)).EndInit();
+            this.TComponentsContextMenu.ResumeLayout(false);
+            this.TModulesContextMenu.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -744,6 +784,10 @@ namespace CraftyIDE.Core.GUI
         private Ambiance_Separator TPlaybackSeparator;
         private TreeView TPlaybackRecordsTree;
         private ImageList TProjectExplorerImageList;
+        private ContextMenuStrip TComponentsContextMenu;
+        private ToolStripMenuItem addComponentToolStripMenuItem;
+        private ContextMenuStrip TModulesContextMenu;
+        private ToolStripMenuItem addModuleToolStripMenuItem;
     }
 }
 

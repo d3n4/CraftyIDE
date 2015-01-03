@@ -1,0 +1,30 @@
+//Crafty.paths({ audio: "custom/audio/path/", images: "custom/images/path/" });
+
+{
+	"Name": "Project",
+	"Entrypoint": "Scripts/main.js:main",
+
+	"Assets": {
+	    "audio": {
+	        "beep": ["beep.wav", "beep.mp3", "beep.ogg"],
+	        "boop": "boop.wav",
+	        "slash": "slash.wav"
+	    },
+	    "images": ["badguy.bmp", "goodguy.png"],
+	    "sprites": {
+	        "animals.png": {
+	            "tile": 50,
+	            "tileh": 40,
+	            "map": { "ladybug": [0,0], "lazycat": [0,1], "ferociousdog": [0,2] },
+	            "paddingX": 5,
+	            "paddingY": 5,
+	            "paddingAroundBorder": 10
+	        },
+	        "vehicles.png": {
+	            "tile": 150,
+	            "tileh": 75,
+	            "map": { "car": [0,0], "truck": [0,1] }
+	        }
+	    },
+	}
+}

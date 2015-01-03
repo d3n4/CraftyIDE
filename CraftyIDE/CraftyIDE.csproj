@@ -57,7 +57,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="FastColoredTextBox">
-      <HintPath>..\..\..\..\..\Downloads\FastColoredTextBox-master\FastColoredTextBox-master\Binary\FastColoredTextBox.dll</HintPath>
+      <HintPath>C:\Users\DENFER\Downloads\FastColoredTextBox-master\FastColoredTextBox-master\Binary\FastColoredTextBox.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
@@ -71,12 +71,17 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
-    <Reference Include="TabStrip, Version=2.0.2523.29272, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>bin\x86\Debug\TabStrip.dll</HintPath>
+    <Reference Include="TabStrip">
+      <HintPath>C:\Users\DENFER\Downloads\FastColoredTextBox-master\FastColoredTextBox-master\Binary\TabStrip.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Core\GUI\TProjectElementsExplorer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Core\GUI\TProjectElementsExplorer.Designer.cs">
+      <DependentUpon>TProjectElementsExplorer.cs</DependentUpon>
+    </Compile>
     <Compile Include="Core\Project\DateSorter.cs" />
     <Compile Include="Core\GUI\TWelcomeForm.cs">
       <SubType>Form</SubType>
@@ -84,13 +89,18 @@
     <Compile Include="Core\GUI\TWelcomeForm.Designer.cs">
       <DependentUpon>TWelcomeForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Core\Project\IProjectItem.cs" />
     <Compile Include="Core\Project\ISaveable.cs" />
     <Compile Include="Core\Project\IUpdateable.cs" />
+    <Compile Include="Core\Project\TSprite.cs" />
+    <Compile Include="Core\Project\TSound.cs" />
+    <Compile Include="Core\Project\TScript.cs" />
+    <Compile Include="Core\Project\TScene.cs" />
     <Compile Include="Core\Project\TProjectTreeNode.cs" />
     <Compile Include="Core\Project\TModule.cs" />
     <Compile Include="Core\Project\TProject.cs" />
     <Compile Include="Core\Project\TComponent.cs" />
-    <Compile Include="Core\Project\TProjectItemList.cs" />
+    <Compile Include="Core\Project\TList.cs" />
     <Compile Include="Core\Project\TProjectResult.cs" />
     <Compile Include="Core\Project\TProjectItem.cs" />
     <Compile Include="Core\GUI\TIDEForm.cs">
@@ -118,6 +128,9 @@
       <DependentUpon>TIDEForm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="Core\GUI\TProjectElementsExplorer.resx">
+      <DependentUpon>TProjectElementsExplorer.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Core\GUI\TWelcomeForm.resx">
       <DependentUpon>TWelcomeForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -131,10 +144,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <None Include="Default\Modules\CraftyJS\module.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Default\Modules\CraftyJS_Debug\module.json">
+    <None Include="Library\Modules\CraftyJS\module.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="Project\properties.mustbe.json">
@@ -430,184 +440,94 @@
     <Folder Include="Project\Sprites\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Default\Modules\CraftyJS\Components\2D.js">
+    <Content Include="Library\Modules\CraftyJS\Components\2D.js">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Default\Modules\CraftyJS\Components\animate.js">
+    <Content Include="Library\Modules\CraftyJS\Components\animate.js">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Default\Modules\CraftyJS\Components\animation.js">
+    <Content Include="Library\Modules\CraftyJS\Components\animation.js">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Default\Modules\CraftyJS\Components\canvas.js">
+    <Content Include="Library\Modules\CraftyJS\Components\canvas.js">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Default\Modules\CraftyJS\Components\collision.js">
+    <Content Include="Library\Modules\CraftyJS\Components\collision.js">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Default\Modules\CraftyJS\Components\controls.js">
+    <Content Include="Library\Modules\CraftyJS\Components\controls.js">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Default\Modules\CraftyJS\Components\device.js">
+    <Content Include="Library\Modules\CraftyJS\Components\device.js">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Default\Modules\CraftyJS\Components\diamondiso.js">
+    <Content Include="Library\Modules\CraftyJS\Components\diamondiso.js">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Default\Modules\CraftyJS\Components\DOM.js">
+    <Content Include="Library\Modules\CraftyJS\Components\DOM.js">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Default\Modules\CraftyJS\Components\drawing.js">
+    <Content Include="Library\Modules\CraftyJS\Components\drawing.js">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Default\Modules\CraftyJS\Components\extensions.js">
+    <Content Include="Library\Modules\CraftyJS\Components\extensions.js">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Default\Modules\CraftyJS\Components\fps.js">
+    <Content Include="Library\Modules\CraftyJS\Components\fps.js">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Default\Modules\CraftyJS\Components\HashMap.js">
+    <Content Include="Library\Modules\CraftyJS\Components\HashMap.js">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Default\Modules\CraftyJS\Components\hitbox.js">
+    <Content Include="Library\Modules\CraftyJS\Components\hitbox.js">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Default\Modules\CraftyJS\Components\html.js">
+    <Content Include="Library\Modules\CraftyJS\Components\html.js">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Default\Modules\CraftyJS\Components\import.js">
+    <Content Include="Library\Modules\CraftyJS\Components\import.js">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Default\Modules\CraftyJS\Components\intro.js">
+    <Content Include="Library\Modules\CraftyJS\Components\intro.js">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Default\Modules\CraftyJS\Components\isometric.js">
+    <Content Include="Library\Modules\CraftyJS\Components\isometric.js">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Default\Modules\CraftyJS\Components\JavaScript.js">
+    <Content Include="Library\Modules\CraftyJS\Components\JavaScript.js">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Default\Modules\CraftyJS\Components\loader.js">
+    <Content Include="Library\Modules\CraftyJS\Components\loader.js">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Default\Modules\CraftyJS\Components\math.js">
+    <Content Include="Library\Modules\CraftyJS\Components\math.js">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Default\Modules\CraftyJS\Components\outro.js">
+    <Content Include="Library\Modules\CraftyJS\Components\outro.js">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Default\Modules\CraftyJS\Components\particles.js">
+    <Content Include="Library\Modules\CraftyJS\Components\particles.js">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Default\Modules\CraftyJS\Components\sound.js">
+    <Content Include="Library\Modules\CraftyJS\Components\sound.js">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Default\Modules\CraftyJS\Components\sprite.js">
+    <Content Include="Library\Modules\CraftyJS\Components\sprite.js">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Default\Modules\CraftyJS\Components\storage.js">
+    <Content Include="Library\Modules\CraftyJS\Components\storage.js">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Default\Modules\CraftyJS\Components\text.js">
+    <Content Include="Library\Modules\CraftyJS\Components\text.js">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Default\Modules\CraftyJS\Components\time.js">
+    <Content Include="Library\Modules\CraftyJS\Components\time.js">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Default\Modules\CraftyJS\module.ico">
+    <Content Include="Library\Modules\CraftyJS\module.ico">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Default\Modules\CraftyJS\Scripts\core.js">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Default\Modules\CraftyJS_Debug\Components\2D.js">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Default\Modules\CraftyJS_Debug\Components\animate.js">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Default\Modules\CraftyJS_Debug\Components\animation.js">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Default\Modules\CraftyJS_Debug\Components\canvas.js">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Default\Modules\CraftyJS_Debug\Components\collision.js">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Default\Modules\CraftyJS_Debug\Components\controls.js">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Default\Modules\CraftyJS_Debug\Components\device.js">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Default\Modules\CraftyJS_Debug\Components\diamondiso.js">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Default\Modules\CraftyJS_Debug\Components\DOM.js">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Default\Modules\CraftyJS_Debug\Components\drawing.js">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Default\Modules\CraftyJS_Debug\Components\extensions.js">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Default\Modules\CraftyJS_Debug\Components\fps.js">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Default\Modules\CraftyJS_Debug\Components\HashMap.js">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Default\Modules\CraftyJS_Debug\Components\hitbox.js">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Default\Modules\CraftyJS_Debug\Components\html.js">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Default\Modules\CraftyJS_Debug\Components\import.js">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Default\Modules\CraftyJS_Debug\Components\intro.js">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Default\Modules\CraftyJS_Debug\Components\isometric.js">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Default\Modules\CraftyJS_Debug\Components\JavaScript.js">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Default\Modules\CraftyJS_Debug\Components\loader.js">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Default\Modules\CraftyJS_Debug\Components\math.js">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Default\Modules\CraftyJS_Debug\Components\outro.js">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Default\Modules\CraftyJS_Debug\Components\particles.js">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Default\Modules\CraftyJS_Debug\Components\sound.js">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Default\Modules\CraftyJS_Debug\Components\sprite.js">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Default\Modules\CraftyJS_Debug\Components\storage.js">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Default\Modules\CraftyJS_Debug\Components\text.js">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Default\Modules\CraftyJS_Debug\Components\time.js">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Default\Modules\CraftyJS_Debug\module.ico">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Default\Modules\CraftyJS_Debug\Scripts\core.js">
+    <Content Include="Library\Modules\CraftyJS\Scripts\core.js">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Project\out\index.html" />

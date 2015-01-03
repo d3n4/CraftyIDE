@@ -1,0 +1,7 @@
+{
+    "Name": "CraftyJS Core",
+    "ReleaseOnly": true,
+    "AutoScan": true,
+    "Hidden":  true,
+    "Included":  true
+}

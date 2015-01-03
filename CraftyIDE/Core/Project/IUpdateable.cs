@@ -5,7 +5,7 @@ using System.Text;
 
 namespace CraftyIDE.Core.Project
 {
-    interface IUpdateable
+    public interface IUpdateable
     {
         void Update();
     }

@@ -1,16 +1,194 @@
 {
-   "$types" : {
-      "CraftyIDE.Core.Project.TProject, CraftyIDE, Version=1.0.5477.10600, Culture=neutral, PublicKeyToken=null" : "1"
-   },
-   "$type" : "1",
    "Name" : "New Project 10",
-   "Directory" : "E:\\Project\\CraftyIDE\\CraftyIDE\\bin\\x86\\Debug\\Projects\\New Project 10",
+   "DirectoryPath" : "E:\\Project\\CraftyIDE\\CraftyIDE\\bin\\x86\\Debug\\Projects\\New Project 10",
    "Width" : 800,
    "Height" : 600,
-   "Modules" : [
-      
-   ],
-   "Components" : [
-      
-   ]
+   "ProjectModule" : {
+      "Name" : "New Project 10",
+      "DirectoryPath" : "E:\\Project\\CraftyIDE\\CraftyIDE\\bin\\x86\\Debug\\Projects\\New Project 10",
+      "DebugOnly" : false,
+      "ReleaseOnly" : true,
+      "Components" : [
+         
+      ],
+      "Modules" : [
+         {
+            "Name" : "CraftyJS Core",
+            "DirectoryPath" : "Library/Modules/CraftyJS",
+            "DebugOnly" : false,
+            "ReleaseOnly" : true,
+            "Components" : [
+               {
+                  "Name" : "2D",
+                  "File" : "E:\\Project\\CraftyIDE\\CraftyIDE\\bin\\x86\\Debug\\Library\\Modules\\CraftyJS\\Components\\2D.js",
+                  "Included" : false
+               },
+               {
+                  "Name" : "animate",
+                  "File" : "E:\\Project\\CraftyIDE\\CraftyIDE\\bin\\x86\\Debug\\Library\\Modules\\CraftyJS\\Components\\animate.js",
+                  "Included" : false
+               },
+               {
+                  "Name" : "animation",
+                  "File" : "E:\\Project\\CraftyIDE\\CraftyIDE\\bin\\x86\\Debug\\Library\\Modules\\CraftyJS\\Components\\animation.js",
+                  "Included" : false
+               },
+               {
+                  "Name" : "canvas",
+                  "File" : "E:\\Project\\CraftyIDE\\CraftyIDE\\bin\\x86\\Debug\\Library\\Modules\\CraftyJS\\Components\\canvas.js",
+                  "Included" : false
+               },
+               {
+                  "Name" : "collision",
+                  "File" : "E:\\Project\\CraftyIDE\\CraftyIDE\\bin\\x86\\Debug\\Library\\Modules\\CraftyJS\\Components\\collision.js",
+                  "Included" : false
+               },
+               {
+                  "Name" : "controls",
+                  "File" : "E:\\Project\\CraftyIDE\\CraftyIDE\\bin\\x86\\Debug\\Library\\Modules\\CraftyJS\\Components\\controls.js",
+                  "Included" : false
+               },
+               {
+                  "Name" : "device",
+                  "File" : "E:\\Project\\CraftyIDE\\CraftyIDE\\bin\\x86\\Debug\\Library\\Modules\\CraftyJS\\Components\\device.js",
+                  "Included" : false
+               },
+               {
+                  "Name" : "diamondiso",
+                  "File" : "E:\\Project\\CraftyIDE\\CraftyIDE\\bin\\x86\\Debug\\Library\\Modules\\CraftyJS\\Components\\diamondiso.js",
+                  "Included" : false
+               },
+               {
+                  "Name" : "DOM",
+                  "File" : "E:\\Project\\CraftyIDE\\CraftyIDE\\bin\\x86\\Debug\\Library\\Modules\\CraftyJS\\Components\\DOM.js",
+                  "Included" : false
+               },
+               {
+                  "Name" : "drawing",
+                  "File" : "E:\\Project\\CraftyIDE\\CraftyIDE\\bin\\x86\\Debug\\Library\\Modules\\CraftyJS\\Components\\drawing.js",
+                  "Included" : false
+               },
+               {
+                  "Name" : "extensions",
+                  "File" : "E:\\Project\\CraftyIDE\\CraftyIDE\\bin\\x86\\Debug\\Library\\Modules\\CraftyJS\\Components\\extensions.js",
+                  "Included" : false
+               },
+               {
+                  "Name" : "fps",
+                  "File" : "E:\\Project\\CraftyIDE\\CraftyIDE\\bin\\x86\\Debug\\Library\\Modules\\CraftyJS\\Components\\fps.js",
+                  "Included" : false
+               },
+               {
+                  "Name" : "HashMap",
+                  "File" : "E:\\Project\\CraftyIDE\\CraftyIDE\\bin\\x86\\Debug\\Library\\Modules\\CraftyJS\\Components\\HashMap.js",
+                  "Included" : false
+               },
+               {
+                  "Name" : "hitbox",
+                  "File" : "E:\\Project\\CraftyIDE\\CraftyIDE\\bin\\x86\\Debug\\Library\\Modules\\CraftyJS\\Components\\hitbox.js",
+                  "Included" : false
+               },
+               {
+                  "Name" : "html",
+                  "File" : "E:\\Project\\CraftyIDE\\CraftyIDE\\bin\\x86\\Debug\\Library\\Modules\\CraftyJS\\Components\\html.js",
+                  "Included" : false
+               },
+               {
+                  "Name" : "import",
+                  "File" : "E:\\Project\\CraftyIDE\\CraftyIDE\\bin\\x86\\Debug\\Library\\Modules\\CraftyJS\\Components\\import.js",
+                  "Included" : false
+               },
+               {
+                  "Name" : "intro",
+                  "File" : "E:\\Project\\CraftyIDE\\CraftyIDE\\bin\\x86\\Debug\\Library\\Modules\\CraftyJS\\Components\\intro.js",
+                  "Included" : false
+               },
+               {
+                  "Name" : "isometric",
+                  "File" : "E:\\Project\\CraftyIDE\\CraftyIDE\\bin\\x86\\Debug\\Library\\Modules\\CraftyJS\\Components\\isometric.js",
+                  "Included" : false
+               },
+               {
+                  "Name" : "JavaScript",
+                  "File" : "E:\\Project\\CraftyIDE\\CraftyIDE\\bin\\x86\\Debug\\Library\\Modules\\CraftyJS\\Components\\JavaScript.js",
+                  "Included" : false
+               },
+               {
+                  "Name" : "loader",
+                  "File" : "E:\\Project\\CraftyIDE\\CraftyIDE\\bin\\x86\\Debug\\Library\\Modules\\CraftyJS\\Components\\loader.js",
+                  "Included" : false
+               },
+               {
+                  "Name" : "math",
+                  "File" : "E:\\Project\\CraftyIDE\\CraftyIDE\\bin\\x86\\Debug\\Library\\Modules\\CraftyJS\\Components\\math.js",
+                  "Included" : false
+               },
+               {
+                  "Name" : "outro",
+                  "File" : "E:\\Project\\CraftyIDE\\CraftyIDE\\bin\\x86\\Debug\\Library\\Modules\\CraftyJS\\Components\\outro.js",
+                  "Included" : false
+               },
+               {
+                  "Name" : "particles",
+                  "File" : "E:\\Project\\CraftyIDE\\CraftyIDE\\bin\\x86\\Debug\\Library\\Modules\\CraftyJS\\Components\\particles.js",
+                  "Included" : false
+               },
+               {
+                  "Name" : "sound",
+                  "File" : "E:\\Project\\CraftyIDE\\CraftyIDE\\bin\\x86\\Debug\\Library\\Modules\\CraftyJS\\Components\\sound.js",
+                  "Included" : false
+               },
+               {
+                  "Name" : "sprite",
+                  "File" : "E:\\Project\\CraftyIDE\\CraftyIDE\\bin\\x86\\Debug\\Library\\Modules\\CraftyJS\\Components\\sprite.js",
+                  "Included" : false
+               },
+               {
+                  "Name" : "storage",
+                  "File" : "E:\\Project\\CraftyIDE\\CraftyIDE\\bin\\x86\\Debug\\Library\\Modules\\CraftyJS\\Components\\storage.js",
+                  "Included" : false
+               },
+               {
+                  "Name" : "text",
+                  "File" : "E:\\Project\\CraftyIDE\\CraftyIDE\\bin\\x86\\Debug\\Library\\Modules\\CraftyJS\\Components\\text.js",
+                  "Included" : false
+               },
+               {
+                  "Name" : "time",
+                  "File" : "E:\\Project\\CraftyIDE\\CraftyIDE\\bin\\x86\\Debug\\Library\\Modules\\CraftyJS\\Components\\time.js",
+                  "Included" : false
+               }
+            ],
+            "Modules" : null,
+            "Scenes" : null,
+            "Scripts" : [
+               {
+                  "Name" : "core",
+                  "File" : "E:\\Project\\CraftyIDE\\CraftyIDE\\bin\\x86\\Debug\\Library\\Modules\\CraftyJS\\Scripts\\core.js",
+                  "Hidden" : true,
+                  "Included" : true
+               }
+            ],
+            "Sounds" : null,
+            "Sprites" : null,
+            "AutoScan" : true,
+            "Hidden" : true
+         }
+      ],
+      "Scenes" : [
+         
+      ],
+      "Scripts" : [
+         
+      ],
+      "Sounds" : [
+         
+      ],
+      "Sprites" : [
+         
+      ],
+      "AutoScan" : false,
+      "Hidden" : false
+   },
+   "ProjectTreeState" : null
 }

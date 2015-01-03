@@ -103,12 +103,14 @@ namespace CraftyIDE.Core.GUI
         {
             TRecentProjectList.Nodes.Clear();
             int index;
-            var projects = Directory.GetDirectories(Environment.CurrentDirectory + "/Projects").Length;
+            if (!Directory.Exists("Projects"))
+                Directory.CreateDirectory("Projects");
+            var projects = Directory.GetDirectories("Projects").Length;
             for (index = 0;
                 index < projects;
                 index++)
             {
-                var projectDirectory = Directory.GetDirectories(Environment.CurrentDirectory + "/Projects")[index];
+                var projectDirectory = Directory.GetDirectories("Projects")[index];
                 var directoryInfo = new DirectoryInfo(projectDirectory);
                 if (File.Exists(projectDirectory + "/properties.json"))
                     TRecentProjectList.Nodes.Add(directoryInfo.FullName, directoryInfo.Name, 1, 1);

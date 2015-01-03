@@ -9,6 +9,17 @@ namespace CraftyIDE.Core.Project
 
         [ReadOnly(true)]
         public string File { get; set; }
+        
+        public override string Identifier {
+            get
+            {
+                return Name;
+            }
+            set
+            {
+                Name = value;
+            }
+        }
 
         public TComponent()
         {
